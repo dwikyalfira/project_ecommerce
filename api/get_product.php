@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     
     if (mysqli_num_rows($result) > 0) {
         $response['value'] = 1;
-        $response['message'] = "Products fetched successfully";
+        $response['message'] = "Berhasil mendapatkan data produk";
         $response['products'] = array();
         
         while ($row = mysqli_fetch_assoc($result)) {
@@ -35,13 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
         echo json_encode($response);
     } else {
         $response['value'] = 0;
-        $response['message'] = "No products found";
+        $response['message'] = "Tidak ada data produk";
         echo json_encode($response);
     }
 } else {
     // Invalid request method
     $response['value'] = 0;
-    $response['message'] = "Invalid request method";
+    $response['message'] = "Metode permintaan tidak valid";
     echo json_encode($response);
 }
 

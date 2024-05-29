@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
     } else {
         $response['value'] = 0;
-        $response['message'] = "Error in query execution";
+        $response['message'] = "Kesalahan dalam eksekusi kueri";
     }
 
     echo json_encode($response);

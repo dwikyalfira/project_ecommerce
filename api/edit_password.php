@@ -22,15 +22,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $update = "UPDATE tb_user SET password = '$password_md5', updated = NOW() WHERE id = '$id'";
         if (mysqli_query($koneksi, $update)) {
             $response['value'] = 1;
-            $response['message'] = "Password updated successfully";
+            $response['message'] = "Berhasil mengubah password";
         } else {
             $response['value'] = 0;
-            $response['message'] = "Failed to update password";
+            $response['message'] = "Gagal mengubah password";
         }
     } else {
         // Missing required POST parameters
         $response['value'] = 0;
-        $response['message'] = "Missing required parameters";
+        $response['message'] = "Parameter tidak lengkap";
     }
 
     echo json_encode($response);
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 } else {
     // Invalid request method
     $response['value'] = 0;
-    $response['message'] = "Invalid request method";
+    $response['message'] = "Metode permintaan tidak valid";
     echo json_encode($response);
 }
 

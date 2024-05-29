@@ -7,7 +7,7 @@ if($koneksi){
 	// echo "Database berhasil terkoneksi";
 	
 } else {
-	echo "gagal Connect";
+	echo "gagal terhubung ke database";
 }
 
 ?>
