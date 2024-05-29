@@ -18,8 +18,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         $response['message'] = "Username atau email telah digunakan";
         echo json_encode($response);
     } else {
-        // Assuming tb_user has columns: id, username, email, password, created_at
-        $insert = "INSERT INTO tb_user (id, username, email, password, created_at) VALUES (NULL, '$username', '$email', '$password', NOW())";
         if(mysqli_query($koneksi, $insert)){
             $response['value'] = 1;
             $response['message'] = "Berhasil didaftarkan";
