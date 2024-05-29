@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         $response['username'] = $row['username'];
                         $response['id'] = $row['id'];
                         $response['updated'] = $row['updated'];
-            
+        
                     } else {
                         $response['value'] = 0;
                         $response['message'] = "Kesalahan dalam pengambilan data yang diperbarui";
