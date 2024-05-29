@@ -1,6 +1,7 @@
 <?php
 
 header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
 include 'koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -24,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $response['message'] = "Username or email is already in use";
         echo json_encode($response);
     } else {
-        // Update the user details
-        $update = "UPDATE tb_user SET username = '$username', email = '$email' WHERE id = '$id'";
+        // Update the user details and the updated field
+        $update = "UPDATE tb_user SET username = '$username', email = '$email', updated = NOW() WHERE id = '$id'";
         if (mysqli_query($koneksi, $update)) {
             $response['value'] = 1;
             $response['message'] = "Profil berhasil di perbarui";
