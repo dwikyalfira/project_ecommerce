@@ -21,11 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
             $product = array(
                 'product_id' => $row['product_id'],
                 'product_name' => $row['product_name'],
+                'product_category' => $row['product_category'],
                 'product_description' => $row['product_description'],
                 'product_image' => $row['product_image'],
                 'product_price' => $row['product_price'],
                 'product_store' => $row['product_store'],
-                'created' => $row['created'],
+                'created' => $row['created_at'],
                 'updated' => $row['updated']
             );
             array_push($response['products'], $product);
