@@ -2,6 +2,7 @@
 include 'koneksi.php';
 
 header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
 
 if (isset($_POST['favorite_id'])) {
     $favorite_id = $_POST['favorite_id'];
@@ -27,7 +28,6 @@ if (isset($_POST['favorite_id'])) {
     );
 }
 
-header('Content-Type: application/json');
 echo json_encode($response);
 
 mysqli_close($koneksi);
