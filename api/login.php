@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if (isset($row)) {
             $response['value'] = 1;
             $response['message'] = "Berhasil login";
+            $response['username'] = $row['username'];
             $response['email'] = $row['email'];
             $response['id'] = $row['id'];
         } else {
