@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $id = mysqli_real_escape_string($koneksi, $id);
         $password = mysqli_real_escape_string($koneksi, $password);
 
-        // Encrypt the new password using md5
+        // Encrypt the new password using md5D
         $password_md5 = md5($password);
 
         // Update the password
