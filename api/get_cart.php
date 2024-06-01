@@ -13,7 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
         $user_id = intval($_GET['user_id']);
 
         // Use prepared statements to prevent SQL injection
-        $query = "SELECT * FROM tb_cart WHERE user_id = ?";
+        $query = "SELECT tb_cart.cart_id, tb_cart.user_id, tb_cart.product_id, tb_cart.created_at, tb_cart.updated, 
+                         tb_product.product_name, tb_product.product_category, tb_product.product_description, 
+                         tb_product.product_image, tb_product.product_price, tb_product.product_store 
+                  FROM tb_cart 
+                  JOIN tb_product ON tb_cart.product_id = tb_product.product_id 
+                  WHERE tb_cart.user_id = ?";
         if ($stmt = $koneksi->prepare($query)) {
             $stmt->bind_param("i", $user_id);
             $stmt->execute();
@@ -30,7 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
                         'user_id' => $row['user_id'],
                         'product_id' => $row['product_id'],
                         'created_at' => $row['created_at'],
-                        'updated' => $row['updated']
+                        'updated' => $row['updated'],
+                        'product_name' => $row['product_name'],
+                        'product_category' => $row['product_category'],
+                        'product_description' => $row['product_description'],
+                        'product_image' => $row['product_image'],
+                        'product_price' => $row['product_price'],
+                        'product_store' => $row['product_store']
                     );
                     array_push($response['cart'], $cart_item);
                 }
