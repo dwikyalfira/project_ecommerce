@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         if (mysqli_num_rows($emailResult) > 0) {
             // Generate OTP
-            $otp = rand(100000, 999999);
+            $otp = rand(1000, 9999);
 
             // Store OTP in the database
             $updateQuery = "UPDATE tb_user SET code_verification='$otp' WHERE email='$email'";
