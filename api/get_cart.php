@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
         // Use prepared statements to prevent SQL injection
         $query = "SELECT tb_cart.cart_id, tb_cart.user_id, tb_cart.product_id, tb_cart.created_at, tb_cart.updated, 
                          tb_product.product_name, tb_product.product_category, tb_product.product_description, 
-                         tb_product.product_image, tb_product.product_price, tb_product.product_store, tb_product.qty 
+                         tb_product.product_image, tb_product.product_price, tb_product.product_store, tb_product.qty , tb_cart.status
                   FROM tb_cart 
                   JOIN tb_product ON tb_cart.product_id = tb_product.product_id 
                   WHERE tb_cart.user_id = ?";
@@ -42,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
                         'product_image' => $row['product_image'],
                         'product_price' => $row['product_price'],
                         'product_store' => $row['product_store'],
+                        'status' => $row['status'],
                         'qty' => $row['qty']
                     );
                     array_push($response['cart'], $cart_item);
