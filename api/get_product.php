@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
                 'product_image' => $row['product_image'],
                 'product_price' => $row['product_price'],
                 'product_store' => $row['product_store'],
+                'qty' => $row['qty'],
                 'created' => $row['created_at'],
                 'updated' => $row['updated']
             );
