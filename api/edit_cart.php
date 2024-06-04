@@ -9,14 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $response = array();
 
     // Check if the required POST parameters are set
-    if (isset($_POST['cart_id'])) {
-        $cart_id = $_POST['cart_id'];
+    if (isset($_POST['user_id'])) {
+        $cart_id = $_POST['user_id'];
 
         // Sanitize inputs to prevent SQL injection
         $cart_id = mysqli_real_escape_string($koneksi, $cart_id);
 
         // Update the cart status to 'done'
-        $update = "UPDATE tb_cart SET status = 'done' WHERE cart_id = '$cart_id'";
+        $update = "UPDATE tb_cart SET status = 'done' WHERE user_id = '$cart_id'";
 
         if (mysqli_query($koneksi, $update)) {
             $response['value'] = 1;
